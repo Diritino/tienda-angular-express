@@ -1,0 +1,14 @@
+<h1>Mi Tienda</h1>
+
+<form (submit)="agregarProducto(); $event.preventDefault()">
+  <input [(ngModel)]="nombre" name="nombre" placeholder="Nombre del producto" required>
+  <input [(ngModel)]="precio" name="precio" type="number" placeholder="Precio" required>
+  <button type="submit">Agregar</button>
+</form>
+
+<ul>
+  <li *ngFor="let producto of productos">
+    <strong>{{ producto.nombre }}</strong> - ${{ producto.precio }}
+    <button (click)="eliminarProducto(producto.id)">Eliminar</button>
+  </li>
+</ul>
